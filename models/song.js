@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/connection');
 
-class Project extends Model {}
+class Song extends Model {}
 
-Project.init(
+Song.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,12 +11,17 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    readable: {
+      type: DataTypes.BOOLEAN,
+    },
+    // The url of the track on Deezer
+    link:{
+      type: DataTypes.URL,
+      allowNull: false,
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    artist: {
-      type: DataTypes.STRING,
     },
     category: {
       type: DataTypes.STRING,
@@ -25,7 +30,13 @@ Project.init(
     release_date: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+    },
+    artist_id: {
+      type: DataTypes.OBJECT,
+      references:{
+        model:'artist',
+        key:'id'
+      }
     },
   },
   {
