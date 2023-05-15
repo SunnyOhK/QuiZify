@@ -10,17 +10,22 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
+app.set('views', path.join(__dirname, 'views'));
+
+const hbs = exphbs.create({});
+
 //middleware
 app.use(
   session({
-    secret: 'process.env.SESSION_SECRET',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
 );
 
 //handlebars
-app.set('view engine', 'hbs');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // serve static files from public directory
 app.use(express.static('public'));
