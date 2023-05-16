@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/connection');
 
-class Song extends Model {}
+class Song extends Model { }
 
 Song.init(
   {
@@ -11,19 +11,7 @@ Song.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    readable: {
-      type: DataTypes.BOOLEAN,
-    },
-    // The url of the track on Deezer
-    link:{
-      type: DataTypes.URL,
-      allowNull: false,
-    },
     title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    category: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -31,12 +19,23 @@ Song.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    link: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     artist_id: {
-      type: DataTypes.OBJECT,
-      references:{
-        model:'artist',
-        key:'id'
+      type: DataTypes.STRING,
+      references: {
+        model: 'artist',
+        key: 'id'
       }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
     },
   },
   {
@@ -47,5 +46,7 @@ Song.init(
     modelName: 'song',
   }
 );
+
+
 
 module.exports = Song;
