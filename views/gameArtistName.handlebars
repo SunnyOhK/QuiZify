@@ -1,0 +1,21 @@
+
+<div>
+  <title>Music Artist Page</title>
+  
+<body>
+  <h1>My Music Collection</h1>
+
+  <div class="music-list">
+    {{#each songs}}
+    <div class="song">
+      <h2>{{title}}</h2>
+      <p>Artist: {{artist}}</p>
+      <p>Album: {{album}}</p>
+    </div>
+    {{/each}}
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
