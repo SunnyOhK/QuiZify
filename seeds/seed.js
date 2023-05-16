@@ -1,25 +1,24 @@
 const sequelize = require('../config/connection');
-const { User, ----- } = require('../models');
-
-const userData = require('./userData.json');
-const projectData = require('./------ .json');
+const Artist = require('../models/artist.js');
+const fetch = require('isomorphic-fetch');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
-  process.exit(0);
+  const artistData = await fetchArtistsFromAPI();
+  await Artist.bulkCreate(artistData);
 };
+
+async function fetchArtistsFromAPI() {
+  const response = await fetch('https://api.deezer.com/chart/0/artists?limit=50');
+  const data = await response.json();
+
+  const artists = data.data.map((artist) => ({
+    name: artist.name,
+    picture: artist.picture,
+    link: artist.link,
+  }));
+  return artists;
+}
 
 seedDatabase();

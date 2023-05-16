@@ -1,11 +1,11 @@
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const routes = require('./controllers');
 const path = require('path');
 const sequelize = require('./config/connection');
-// dotenv.config();
+dotenv.config();
 require('dotenv').config();
 
 const app = express();
@@ -45,8 +45,8 @@ app.use((err, req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`);
+// app.listen(PORT, () => {
+//   console.log(`Example app listening at http://localhost:${PORT}`);
 // }
 // );
 
