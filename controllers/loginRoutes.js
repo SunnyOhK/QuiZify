@@ -31,6 +31,7 @@ router.get('/callback', async (req, res) => {
 
     const responseParams = new URLSearchParams(responseBody);
     const access_token = responseParams.get('access_token');
+    console.log(access_token);
 
     req.session.accessToken = access_token;
     res.redirect('/?loggedIn=true');

@@ -6,3 +6,10 @@
 // router.use('/ ----- ', projectRoutes);
 
 // module.exports = router;
+
+// const router = require('express').Router();
+
+// const artistRoutes = require('./api/artistRoutes');
+// router.use('/artist', artistRoutes);
+
+// module.exports = router;

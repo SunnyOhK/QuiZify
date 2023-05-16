@@ -1,5 +1,5 @@
 <!-- Button blocks for 'Match Sound Byte with Artist Name' -->
-<p>Game Mode: Artist Name</p>
+{{!-- <p>Game Mode: Artist Name</p>
 <div class="container">
   <div class="row justify-content-center">
     <div class="d-grid gap-2">
@@ -10,4 +10,12 @@
     </div>
   </div>
 </div>
-</div>
+</div> --}}
+
+<h1>Quiz</h1>
+{{#each artists}}
+  <div class="artist-card">
+    <img src="{{this.picture}}" alt="{{this.name}}">
+    <h2>{{this.name}}</h2>
+  </div>
+{{/each}}
