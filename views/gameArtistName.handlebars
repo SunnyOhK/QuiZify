@@ -17,5 +17,8 @@
   <div class="artist-card">
     <img src="{{this.picture}}" alt="{{this.name}}">
     <h2>{{this.name}}</h2>
+    <audio controls>
+      <source src="{{../previewTrackUrls.[0]}}" type="audio/mpeg">
+    </audio>
   </div>
 {{/each}}

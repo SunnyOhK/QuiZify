@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 const routes = require('./controllers');
 const path = require('path');
 const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
+
 dotenv.config();
 require('dotenv').config();
 
@@ -25,7 +27,17 @@ app.use(
 );
 
 //handlebars
-app.engine('handlebars', hbs.engine);
+app.engine(
+  'handlebars', 
+  exphbs({
+    defaultLayout: 'main',
+    extname: '.handlebars',
+    helpers: {
+      previewTrackUrls: helpers.previewTrackUrls,
+    },
+  })
+);
+
 app.set('view engine', 'handlebars');
 
 // serve static files from public directory
