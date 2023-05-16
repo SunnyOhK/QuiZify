@@ -1,7 +1,6 @@
 const User = require('./user');
 const Song = require('./song');
 const Artist = require('./artist');
-const UserSong = require('./usersongs');
 
 // Associations 
 // Songs belongs to Artist
@@ -15,19 +14,26 @@ Artist.hasMany(Song, {
 });
 
 
-// Song belongToMany User (through UserSong)
-Song.belongsToMany(User, {
-    through: {
-        model: UserSong
-    },
-    as: 'songs'
-});
-User.belongsToMany(Song, {
-    through: {
-        model: UserSong
-    },
-    as: 'songs'
+// Song belongTo User
+
+Song.belongsTo(User, { foreignKey: 'user_id' })
+User.hasMany(Song, {
+    foreignKey: 'user__id',
+    onDelete: 'CASCADE',
 });
 
+// Song.belongsToMany(User, {
+//     through: {
+//         model: UserSong
+//     },
+//     as: 'songs'
+// });
+// User.belongsToMany(Song, {
+//     through: {
+//         model: UserSong
+//     },
+//     as: 'user_songs'
+// });
 
-module.exports = { User, Artist, Song, UserSong };
+
+module.exports = { User, Artist, Song };

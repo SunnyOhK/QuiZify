@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../config/connection');
+const sequelize = require('../config/connection');
 
 class Artist extends Model { }
 
@@ -16,15 +16,10 @@ Artist.init(
       allowNull: false,
     },
     picture: {
-      type: DataTypes.URL,
-      allowNull: false
-    },
-    category: {
       type: DataTypes.STRING,
-      allowNull: false
     },
-    tracklist: {
-      type: DataTypes.URL,
+    link: {
+      type: DataTypes.STRING,
       allowNull: false
     },
   },
@@ -36,5 +31,6 @@ Artist.init(
     modelName: 'artist',
   }
 );
+
 
 module.exports = Artist;
