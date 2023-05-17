@@ -20,20 +20,12 @@ Song.init(
       allowNull: false,
     },
     release_date: {
-
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
-    link: {
-      type: DataTypes.STRING(255),
-
+    preview_track_url: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    link: {
-      type: DataTypes.STRING,
-
-      allowNull: false,
+      allowNull: true,
     },
     artist_id: {
       type: DataTypes.INTEGER,
