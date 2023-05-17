@@ -17,5 +17,5 @@ if (process.env.JAWSDB_URL) {
     }
   );
 }
-
+console.log(process.env.DB_USER, process.env.DB_PASSWORD, process.env.DB_NAME);
 module.exports = sequelize;

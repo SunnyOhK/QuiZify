@@ -1,31 +1,41 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../config/connection');
+const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Song extends Model { }
 
-Project.init(
+Song.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      // autoIncrement: true,
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    artist: {
-      type: DataTypes.STRING,
-    },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     release_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+    },
+    link: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    artist_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'artist',
+        key: 'id'
+      }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
     },
   },
   {
@@ -37,4 +47,7 @@ Project.init(
   }
 );
 
+
+
 module.exports = Song;
+

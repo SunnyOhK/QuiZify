@@ -1,26 +1,24 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../../config/connection');
+const sequelize = require('../config/connection');
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Artist extends Model { }
 
-User.init(
+Artist.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      // autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category: {
+    picture: {
+      type: DataTypes.STRING,
+    },
+    link: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -33,5 +31,6 @@ User.init(
     modelName: 'artist',
   }
 );
+
 
 module.exports = Artist;

@@ -4,23 +4,41 @@ const exphbs = require('express-handlebars');
 const dotenv = require('dotenv');
 const routes = require('./controllers');
 const path = require('path');
+const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
 
 dotenv.config();
+require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
+
+app.set('views', path.join(__dirname, 'views'));
+
+const hbs = exphbs.create({});
 
 //middleware
 app.use(
   session({
-    secret: 'process.env.SESSION_SECRET',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
 );
 
 //handlebars
-app.set('view engine', 'hbs');
+app.engine(
+  'handlebars', 
+  exphbs({
+    defaultLayout: 'main',
+    extname: '.handlebars',
+    helpers: {
+      previewTrackUrls: helpers.previewTrackUrls,
+    },
+  })
+);
+
+app.set('view engine', 'handlebars');
 
 // serve static files from public directory
 app.use(express.static('public'));
@@ -39,8 +57,12 @@ app.use((err, req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-}
-);
+// app.listen(PORT, () => {
+//   console.log(`Example app listening at http://localhost:${PORT}`);
+// }
+// );
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
 
