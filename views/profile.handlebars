@@ -1,48 +1,79 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navback">
+    <div class="container-fluid">
+      <div class="row align-items-center">
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+        <div class="container-fluid">
+          <div class="row align-items-center">
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+            <!-- ! NAV BAR WILL CHANGE TO 'HOME' ONLY -->
+            <!--* FIRST COLUMN : Logo & Basic Nav *-->
+            <div class="col ms-4" style="width: 33.33vw">
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <a class="navbar-brand" id="logo-text">Z</a>
+                <ul class="navbar-nav" id="navbar-text">
+                  <li class="nav-item me-2">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+            <!--* SECOND COLUMN : Welcome! *-->
+            <div class="col" style="width: 33.33vw; text-align: center;">
+              <span class="navbar-text" id="welcome">Welcome, {{user.name}}!</span>
+            </div>
 
-    {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
-      </div>
+            <!--* THIRD COLUMN : Login/Logout *-->
+            <div class="col me-4" style="width: 33.33vw; text-align: end;">
+              <button class="btn btn-light login" href="#">Logout</button>
+            </div>
+          </div>
+        </div>
+  </nav>
+
+
+
+  <main>
+    <h1>qui<big>Z</big>ify</h1>
+
+    <div class="background-container d-flex justify-content-center align-items-center"
+      style="background-image: url('../assets/boombox-muted-2.png');background-repeat: no-repeat; background-position: center; background-size: contain; width: 100%; padding-bottom: 30%;"
+      id="boombox">
     </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
 
-<script src="./js/profile.js"></script>
+    <div class="container-fluid" id="table-contain">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 22%">Remove</th>
+            <th scope="col" style="width: 56%" class="track-col">Track</th>
+            <th scope="col" style="width: 22%">Play</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="delete-icon">⛔</th>
+            <td scope>PS GFY - - GRiZ</td>
+            <td class="play-icon">▶︎</td>
+          </tr>
+          <tr>
+            <th scope="row" class="delete-icon">⛔</th>
+            <td scope>PS GFY - - GRiZ</td>
+            <td class="play-icon">▶︎</td>
+          </tr>
+          <tr>
+            <th scope="row" class="delete-icon">⛔</th>
+            <td scope>PS GFY - - GRiZ</td>
+            <td class="play-icon">▶︎</td>
+          </tr>
+          <tr>
+            <th scope="row" class="delete-icon">⛔</th>
+            <td scope>PS GFY - - GRiZ</td>
+            <td class="play-icon">▶︎</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <img src="../../assets/sliders.png" style="width: 99.1vw; height: 100px;">
