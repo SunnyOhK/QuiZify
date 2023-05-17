@@ -1,16 +1,20 @@
-<!-- Button blocks for 'Match Sound Byte with Artist Name' -->
-{{!-- <p>Game Mode: Artist Name</p>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="d-grid gap-2">
-      <button class="btn btn-secondary" type="button">Artist 1</button>
-      <button class="btn btn-secondary" type="button">Artist 2</button>
-      <button class="btn btn-secondary" type="button">Artist 3</button>
-      <button class="btn btn-secondary" type="button">Artist 4</button>
+
+<div>
+  <title>Music Artist Page</title>
+  
+<body>
+  <h1>My Music Collection</h1>
+
+  <div class="music-list">
+    {{#each songs}}
+    <div class="song">
+      <h2>{{title}}</h2>
+      <p>Artist: {{artist}}</p>
+      <p>Album: {{album}}</p>
     </div>
+    {{/each}}
   </div>
-</div>
-</div> --}}
+
 
 <h1>Quiz</h1>
 <audio id="audioPlayer" data-preview-track-url="{{previewTrackUrl}}">
@@ -29,3 +33,9 @@
 <script src = '/js/quiz.js'></script>
 ```
 
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+ main

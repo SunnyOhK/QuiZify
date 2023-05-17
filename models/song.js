@@ -9,18 +9,30 @@ Song.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+
       autoIncrement: true,
+
+      // autoIncrement: true,
+
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     release_date: {
+
       type: DataTypes.DATE,
       allowNull: true,
     },
     link: {
       type: DataTypes.STRING(255),
+
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    link: {
+      type: DataTypes.STRING,
+
       allowNull: false,
     },
     artist_id: {
@@ -50,3 +62,7 @@ Song.init(
 
 
 module.exports = Song;
+
+
+
+
