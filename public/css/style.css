@@ -1,5 +1,9 @@
 :root {
   --neon-pink: #ff0080;
+  --neon-blue: #008AF6;
+  --neon-green: #26f600;
+  --neon-yellow: #F1F751;
+
   --dark-grey: #676767;
   --midnight-blue:
     --white: #ffffff;
@@ -32,7 +36,7 @@ h1 {
 }
 
 #spacer {
-  border-left: 1px solid rgb(83, 82, 82);
+  border-right: 1px solid rgba(83, 82, 82, 0.853);
 }
 
 #welcome {
@@ -57,22 +61,26 @@ h1 {
 
 .login:hover {
   background-color: #cecece00;
-  text-shadow: 2px 1px #00a8f6;
+  text-shadow: 2px 1px var(--neon-blue);
   transition: .2s ease-in-out;
   transform: scale(1.5);
 }
-
-/* #logo-text {
-  align-items: center;
-  height: 100%;
-} */
 
 #boombox {
   margin: 4.4em auto 5em auto;
 }
 
+.background-container {
+  position: relative;
+}
+
+.genre-dropdown {
+  justify-content: center;
+  align-items: center;
+}
+
 footer {
-  background-color: #ff0080;
+  background-color: var(--neon-pink);
   text-align: center;
   height: 4.4rem;
 }
@@ -81,6 +89,52 @@ footer {
   font-size: 24px !important;
 }
 
+/** PROFILE PAGE **/
+#table-contain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+table {
+  max-width: 56%;
+  justify-content: center;
+  border: 1px solid black !important;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+  font-size: 28px;
+}
+
+.track-col {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+thead {
+  background-color: rgba(0, 0, 0, 0.689);
+}
+
+tbody {
+    background-color: rgba(0, 0, 0, 0.386);
+}
+
+th, td {
+  text-align: center;
+  color: white !important;
+}
+
+.play-icon {
+  color: var(--neon-green) !important;
+}
+
+.delete-icon {
+  
+}
 
 /** GAME BOARD **/
 #soundwave {
@@ -107,7 +161,7 @@ footer {
 .play {
   font-family: 'Fredericka the Great', cursive;
   font-size: 60px;
-  color: #ff0080;
+  color: var(--neon-pink);
 }
 
 .game-text {
