@@ -43,6 +43,7 @@ app.set('view engine', 'handlebars');
 // serve static files from public directory
 app.use(express.static('public'));
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -13,12 +13,19 @@
 </div> --}}
 
 <h1>Quiz</h1>
+<audio id="audioPlayer" data-preview-track-url="{{previewTrackUrl}}">
+   <source id="audioSource" type="audio/mpeg">
+</audio>
+
+<button id="play-button">Play</button>
 {{#each artists}}
-  <div class="artist-card">
-    <img src="{{this.picture}}" alt="{{this.name}}">
-    <h2>{{this.name}}</h2>
-    <audio controls>
-      <source src="{{../previewTrackUrls.[0]}}" type="audio/mpeg">
-    </audio>
-  </div>
+<div class="artist-card">
+  <img src="{{this.picture}}" alt="{{this.name}}">
+  <h2>{{this.name}}</h2>
+</div>
 {{/each}}
+
+
+<script src = '/js/quiz.js'></script>
+```
+
