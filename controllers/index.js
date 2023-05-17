@@ -1,11 +1,10 @@
 const router = require('express').Router();
-
-const apiRoutes = require('./api');
+// const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
 const loginRoutes = require('./loginRoutes');
 const logoutRoutes = require('./logoutRoutes');
 
-const quizController = require('./quizRoutes');
+const quizController = require('./quizController');
 
 
 router.use('/', homeRoutes);
@@ -13,7 +12,7 @@ router.use('/', homeRoutes);
 router.use('/auth/deezer', loginRoutes);
 router.use('/logout', logoutRoutes);
 
-router.get('/quiz', quizController.startQuiz);
+router.use('/quiz', quizController);
 
 
 module.exports = router;
