@@ -1,8 +1,9 @@
 :root {
   --neon-pink: #ff0080;
   --dark-grey: #676767;
-  --midnight-blue: 
-  --white: #ffffff;
+  --midnight-blue:
+    --white: #ffffff;
+  --navbar:
 }
 
 
@@ -17,28 +18,63 @@ h1 {
   margin-bottom: .3em;
 }
 
+#navback {
+  font-size: 24px;
+  padding-left: 30px;
+  background-color: #d1d1d18d !important;
+  height: 3.1em;
+}
+
 #navbar-text {
-  font-size: 23px;
+  font-size: 24px;
   padding-left: 20px;
+  background-color: #d1d1d100 !important;
+}
+
+#spacer {
+  border-left: 1px solid rgb(83, 82, 82);
+}
+
+#welcome {
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
 }
 
 #logo-text {
   font-family: 'Chelsea Market',
     'cursive';
-  font-size: 40px;
+  font-size: 68px;
 }
 
+.login {
+  font-size: 28px;
+  font-family: 'Chelsea Market', 'cursive';
+  margin-right: 48px;
+  background-color: #cecece00;
+  border: none;
+}
+
+.login:hover {
+  background-color: #cecece00;
+  text-shadow: 2px 1px #00a8f6;
+  transition: .2s ease-in-out;
+  transform: scale(1.5);
+}
+
+/* #logo-text {
+  align-items: center;
+  height: 100%;
+} */
+
 #boombox {
-  display: block;
   margin: 4.4em auto 5em auto;
-  width: 40%;
 }
 
 footer {
   background-color: #ff0080;
-  align-items: center;
+  text-align: center;
   height: 4.4rem;
-  padding-top: .5px;
 }
 
 #footer-text {
