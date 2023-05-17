@@ -17,8 +17,8 @@
 
 
 <h1>Quiz</h1>
-<audio id="audioPlayer" data-preview-track-url="{{previewTrackUrl}}">
-   <source id="audioSource" type="audio/mpeg">
+<audio id="audioPlayer" controls>
+   <source src = '{{previewTrackUrl}}'id="audioSource" type="audio/mpeg">
 </audio>
 
 <button id="play-button">Play</button>
@@ -30,12 +30,9 @@
 {{/each}}
 
 
-<script src = '/js/quiz.js'></script>
-```
 
 
-  <script src="script.js"></script>
+  <script src="/js/quiz.js"></script>
 </body>
 
 </html>
- main

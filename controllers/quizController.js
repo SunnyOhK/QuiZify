@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('isomorphic-fetch');
-const Artist = require('../models/Artist');
-// const { Howl } = require('howler');
-// let sounds = [];
+const Artist = require('../models/artist');
+
+
 
 async function getRandomArtists() {
 	try {
@@ -37,33 +37,6 @@ async function getPreviewTrack(artistID) {
 	}
 }
 
-// async function startQuiz(req, res) {
-// 	try {
-// 		const artists = await getRandomArtists();
-// 		const randomArtist = artists[Math.floor(Math.random() * artists.length)];
-// 		const previewTrackUrl = await getPreviewTrack(randomArtist.id);
-
-// 		const sound = new Howl({
-// 			src: [previewTrackUrl],
-// 			format: ['mp3'],
-// 			autoplay: true,
-// 		});
-// 		sounds.push(sound);
-// 		console.log(sounds);
-
-// 		res.render('gameArtistName', { artists });
-// 	} catch (err) {
-// 		console.error(err);
-// 		res.status(500).send('Error getting artists');
-// 	}
-// }
-
-// function playSound() {
-// 	const sound = sounds[0];
-// 	if (sound) {
-// 		sound.play();
-// 	}
-// }
 
 function shuffleArray(array) {
 	const shuffledArray = [...array];
@@ -80,13 +53,8 @@ router.get('/', async (req, res) => {
 		const randomArtist = artists[Math.floor(Math.random() * artists.length)];
 		const previewTrackUrl = await getPreviewTrack(randomArtist.id);
 
-		// const sound = new Howl({
-		// 	src: [previewTrackUrl],
-		// 	format: ['mp3'],
-		// 	autoplay: true,
-	
 
-		res.render('gameArtistName', { artists });
+		res.render('gameArtistName', { artists, previewTrackUrl });
 	} catch (err) {
 		console.error(err);
 		res.status(500).send('Error getting artists');
