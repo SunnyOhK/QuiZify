@@ -20,13 +20,13 @@
 
           <!--* SECOND COLUMN : Welcome! *-->
           <div class="col" style="width: 33.33vw; text-align: center;">
-            <span class="navbar-text" id="welcome">{{user.name}}'s Profile</span>
+            <span class="navbar-text" id="welcome">{{ name }}'s Profile</span>
           </div>
 
           <!--* THIRD COLUMN : Login/Logout *-->
           <div class="col me-4" style="width: 33.33vw; text-align: end;">
 {{! LOUGOUT BUTTON SHOULD LOG USER OUT AT DEEZER LEVEL}}
-            <button class="btn btn-light login" href="#">Logout</button>
+            <button class="btn btn-light login" id="logout" href="#">Logout</button>
           </div>
         </div>
       </div>
@@ -41,11 +41,10 @@
   </div>
 
 
-
+{{#if songs.length}}
   <div class="container-fluid" id="table-contain">
 
     <p class="text-center" id="song-queue">Song Queue:</p>
-
     <table class="table">
       <thead>
         <tr>
@@ -54,28 +53,31 @@
           <th scope="col" style="width: 22%">Play</th>
         </tr>
       </thead>
+{{#each songs as |song|}}
       <tbody>
         <tr>
           <th scope="row" class="delete-icon">⛔</th>
-          <td scope>PS GFY - - GRiZ</td>
-          <td class="play-icon">▶︎</td>
+          <td scope><a href="/songs/{{song.id}}">{{song.title}} by {{song.artist.name}}</a></td>
+          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
         </tr>
         <tr>
           <th scope="row" class="delete-icon">⛔</th>
           <td scope>{{ SAVED SONG }}</td>
-          <td class="play-icon">▶︎</td>
+          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
         </tr>
         <tr>
           <th scope="row" class="delete-icon">⛔</th>
           <td scope>{{ SAVED SONG }}</td>
-          <td class="play-icon">▶︎</td>
+          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
         </tr>
         <tr>
           <th scope="row" class="delete-icon">⛔</th>
           <td scope>{{ SAVED SONG }}</td>
-          <td class="play-icon">▶︎</td>
+          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
         </tr>
       </tbody>
     </table>
   </div>
 </main>
+
+<script src="./js/profile.js"></script>
