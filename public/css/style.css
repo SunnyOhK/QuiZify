@@ -118,7 +118,7 @@ h1 {
 
 .boombox {
   margin: 4.4em auto 5em auto;
-  background-image: url('../assets/boombox-muted.png');
+  background-image: url('../../public/assets/boombox-muted.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
