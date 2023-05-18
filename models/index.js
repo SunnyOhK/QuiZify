@@ -17,7 +17,7 @@ Artist.hasMany(Song, {
 
 Song.belongsTo(User, { foreignKey: 'user_id' })
 User.hasMany(Song, {
-    foreignKey: 'user__id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
 
