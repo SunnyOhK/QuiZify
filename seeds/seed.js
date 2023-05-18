@@ -21,6 +21,21 @@ async function fetchArtistsFromAPI() {
 }
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Fetch Songs Date
+async function fetchSongDate(trackId) {
+  const response = await fetch(`https://api.deezer.com/track/${trackId}`);
+  const data = await response.json();
+
+  if (!data) {
+    console.error(`error`);
+    return null;
+  }
+
+  const releaseDate = data.release_date || '';
+
+  return releaseDate;
+}
+
 // Fetch Songs
 async function fetchSongsFromAPI(artistId) {
   const response = await fetch(`https://api.deezer.com/artist/${artistId}/top?limit=1`);
@@ -34,16 +49,18 @@ async function fetchSongsFromAPI(artistId) {
   const trackId = data.data[0].id;
   const previewTrackUrl = data.data[0].preview;
   console.log('Preview Track URL:', previewTrackUrl);
+  const releaseDate = await fetchSongDate(trackId);
 
   const song = {
     id: trackId,
     title: data.data[0].title || '',
-    release_date: data.data[0].release_date || '',
+    release_date: releaseDate || '',
     preview_track_url: previewTrackUrl,
   };
   return song;
 }
 
+// Function to seed Artist and Song
 const seedDatabase = async () => {
   const artistData = await fetchArtistsFromAPI();
   const artists = await Artist.bulkCreate(artistData, { returning: true });
@@ -59,14 +76,14 @@ const seedDatabase = async () => {
         preview_track_url: songData.preview_track_url,
         artist_id: artist.id,
       };
+      
       // console.log(song);
-
       await Song.create(song);
     }
   }
-
 };
 
+// function to seed database
 const syncAndSeedDatabase = async () => {
   
   await sequelize.sync({ force: true });
@@ -75,6 +92,5 @@ const syncAndSeedDatabase = async () => {
 
   await seedDatabase();
 };
-
 
 syncAndSeedDatabase();
