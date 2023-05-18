@@ -1,4 +1,4 @@
-
+{{!-- 
 <div>
   <title>Music Artist Page</title>
   
@@ -13,7 +13,7 @@
       <p>Album: {{album}}</p>
     </div>
     {{/each}}
-  </div>
+  </div> --}}
 
 
 <h1>Quiz</h1>
@@ -24,19 +24,22 @@
 <button id="play-button">Play</button>
 {{#each artists}}
 <div class="artist-card">
-  <img src="{{this.picture}}" alt="{{this.name}}">
-  <h2>{{this.name}}</h2>
+  <a href="/quiz/?artistId={{id}}">
+  <img src="{{picture}}" alt="{{name}}" id="artist-image">
+  <h2 id="artist-name">{{name}}</h2>
+  </a>
 </div>
 {{/each}}
 
 <div class="timer">
   <p id="timer"></p>
 </div>
+<div>
+  <p>{{score}}</p>
+</div>
 
 
 
 
   <script src="/js/quiz.js"></script>
-</body>
 
-</html>

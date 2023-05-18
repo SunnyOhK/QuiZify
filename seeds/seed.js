@@ -1,3 +1,4 @@
+const { release } = require('process');
 const sequelize = require('../config/connection');
 const Artist = require('../models/artist');
 const Song = require('../models/song');
@@ -37,6 +38,20 @@ async function fetchSongDate(trackId) {
 }
 
 // Fetch Songs
+async function fetchSongDate(trackId) {
+  const response = await fetch(`https://api.deezer.com/track/${trackId}`);
+  const data = await response.json();
+
+  if (!data) {
+    console.error(`No songs found for track with id ${trackId}`);
+    return null;
+  }
+
+  const releaseDate = data.release_date || '';
+
+  return releaseDate;
+}
+
 async function fetchSongsFromAPI(artistId) {
   const response = await fetch(`https://api.deezer.com/artist/${artistId}/top?limit=1`);
   const data = await response.json();
