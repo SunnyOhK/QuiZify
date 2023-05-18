@@ -40,13 +40,22 @@
                           data-bs-toggle="dropdown" aria-expanded="false">
                           How to Play
                         </a>
-                        <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
-                          <p>
-                            Some example text that's free-flowing within the dropdown menu.
+                        <div class="dropdown-menu p-4 text-muted" style="width: 33vw;" id="rules">
+                          <p class="dropdown-header">
+                            quiZify is fun and easy!
                           </p>
+                          <div id="rules-para">
                           <p class="mb-0">
-                            And this is more example text.
+                            Select your favorite music genre, and then choose which style of game-play you prefer:
+                            <ol>
+                              <li>Match the song clip with the artist photo.</li>
+                              <li>Match the song clip with the artist name.</li>
+                            </ol>
                           </p>
+                          <p style="text-align: center; font-size: 25px; margin-bottom: -3px;"><b> ♪ ♪ ♪ ♪ ♪ ♪ ♪ ♪ ♪ ♪</b></p>
+                          <p style="text-align: center;">You get 30s per song so act fast!</p> 
+                          <p>At the end of 5 rounds, you can save your favorite tracks to your profile playlist!</p>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -68,24 +77,22 @@
         </div>
   </nav>
 
-
-
   <main>
     <h1>qui<big>Z</big>ify</h1>
 
-    <div class="dropdown" id="genre-dropdown">
+    <div class="dropdown row justify-content-center" id="genre-dropdown">
       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
-        aria-expanded="false">
+        aria-expanded="false" style="width: 20vw;">
         Genres | Categories
       </button>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-        <li><a class="dropdown-item active" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownMenuButton2" style="width: 20vw;" id="genre-list">
+        <li><a class="dropdown-item" href="#"> Pop Rock</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#"> Classic Country</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#"> 60s Hits</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#"> Death Metal</a></li>
       </ul>
     </div>
 
@@ -107,6 +114,7 @@
   </footer>
 
   <script src="../../public/js/home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
