@@ -13,14 +13,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* margin: 4.4em auto 5em auto; */
-  background-image: url('../assets/boombox-muted.png');
-  /* background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width: 100%;
-  padding-bottom: 30%; */
-  background-size: cover;
 }
 
 /** HOMEPAGE **/
@@ -122,6 +114,16 @@ h1 {
   font-size: 21px;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.boombox {
+  margin: 4.4em auto 5em auto;
+  background-image: url('../../public/assets/boombox-muted.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  padding-bottom: 30%;
 }
 
 footer {
