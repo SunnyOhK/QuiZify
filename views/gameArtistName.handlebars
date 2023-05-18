@@ -1,22 +1,88 @@
-{{!-- 
-<div>
-  <title>Music Artist Page</title>
-  
-<body>
-  <h1>My Music Collection</h1>
+<!-- TELL THEM WHAT TO DO -->
+<div class="container-fluid" id="game-textbox-name" style="z-index: 2">
+  <h2 class="play-name">play !</h2>
+  <p class="game-text-name">Match the sound-byte with the artist's name.</p>
+</div>
 
-  <div class="music-list">
-    {{#each songs}}
-    <div class="song">
-      <h2>{{title}}</h2>
-      <p>Artist: {{artist}}</p>
-      <p>Album: {{album}}</p>
+<!-- TIMER -->
+
+
+<!-- SOUND WAVES -->
+<div class="container" id="wave-shadow" style="width: 36vw; position: relative; object-fit: cover; z-index: 1;">
+  <div class="soundbar" id="soundbox">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+</div>
+
+<!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
+<!-- Button blocks for 'Match Sound Byte with Artist Name' -->
+<div class="container">
+  <div class="row justify-content-center mb-2">
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-secondary" id="name-choice" type="button" style="width: 400px; height: 50px;">Artist
+        1</button>
     </div>
-    {{/each}}
-  </div> --}}
+    <div class="col d-flex justify-content-baseline">
+      <button class="btn btn-secondary" id="name-choice" type="button" style="width: 400px; height: 50px;">Artist
+        2</button>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-secondary" id="name-choice" type="button" style="width: 400px; height: 50px;">Artist
+        3</button>
+    </div>
+    <div class="col d-flex justify-content-baseline">
+      <button class="btn btn-secondary" id="name-choice" type="button" style="width: 400px; height: 50px;">Artist
+        4</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 
-
-<h1>Quiz</h1>
 <audio id="audioPlayer" >
    <source src = '{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
 </audio>
