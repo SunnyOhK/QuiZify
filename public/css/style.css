@@ -10,7 +10,11 @@
   --navbar:
 }
 
-
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 /** HOMEPAGE **/
 h1 {
@@ -48,13 +52,13 @@ h1 {
 
 #logo-text {
   font-family: 'Chelsea Market',
-    'cursive';
+    cursive;
   font-size: 68px;
 }
 
 .login {
   font-size: 28px;
-  font-family: 'Chelsea Market', 'cursive';
+  font-family: 'Chelsea Market', cursive;
   margin-right: 48px;
   background-color: #cecece00;
   border: none;
@@ -84,6 +88,7 @@ footer {
   background-color: var(--neon-pink);
   text-align: center;
   height: 4.4rem;
+  margin-top: auto;
 }
 
 #footer-text {
@@ -200,7 +205,8 @@ td {
 }
 
 .play {
-  font-family: 'Tilt Neon', cursive;
+  font-family: 'Chelsea Market',
+    cursive;
   font-size: 60px;
   color: var(--white);
   text-shadow: 2px 2px 2px #2b2b2b;
