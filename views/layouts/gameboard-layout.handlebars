@@ -40,7 +40,7 @@
             <!--* SECOND COLUMN : Welcome! *-->
             <div class="col" style="width: 33.33vw; text-align: center;">
               <span class="navbar-text" id="welcome">
-    
+
 
               </span>
             </div>
@@ -57,31 +57,36 @@
   <h1 class="gameboard-title">qui<big>Z</big>ify</h1>
 
   <main>
-
-    <div class="background-container">
+    <div class="background-container" id="music-wild" style="position: relative;">
       <div class="background-image d-flex justify-content-center align-items-center"
-        style="position: absolute; top: 0; left: 0; background-image: url('../assets/gameboard-bg.png');background-repeat: repeat; background-position: center; background-size: contain; width: 99.1vw; height: 100vh; padding-bottom: 40%; z-index: -4;">
-
+        style="position: absolute; top: 0; left: 0; background-image: url('../public/assets/gameboard-bg.png');background-repeat: repeat; background-position: center; background-size: contain; width: 99.1vw; height: 100%; z-index: -3;">
       </div>
+      <div><br></div>
+
+      {{{body}}}
+
+      <!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
+      <!-- OR GAME SCORE AND LIST OF SONGS PLAYED -->
+
+
     </div>
-    {{{body}}}
-
-    <!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
-    <!-- OR GAME SCORE AND LIST OF SONGS PLAYED -->
-
+  </main>
 
   <footer class="footer d-flex align-items-center justify-content-center">
     <p class="text-center my-3 fs-5" id="footer-text"><span
-        style="font-family: 'Chelsea Market', 'cursive'"><big>Z</big></span>C 2023 | UT Coding
-      Bootcamp Team 6 WebDev<span style="font-family: 'Chelsea Market', 'cursive'"><big>Z</big></span>
+        style="font-family: 'Chelsea Market', 'cursive'"><big>Z</big></span><span
+        style="margin-right: 25px;"></span>&#169
+      2023 | UT Coding
+      Bootcamp Team 6 WebDev<span style="font-family: 'Chelsea Market', 'cursive'"><span
+          style="margin-right: 25px;"></span><big>Z</big></span>
     </p>
   </footer>
-  
+
   <script src="/js/home.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-  </body>
-  
-  </html>
+
+</body>
+
+</html>
 
 </html>
