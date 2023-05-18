@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 app.set('views', path.join(__dirname, 'views'));
 
-const hbs = exphbs.create({});
+
 
 //middleware
 app.use(

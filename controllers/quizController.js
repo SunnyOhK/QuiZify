@@ -93,7 +93,12 @@ router.get('/', async (req, res) => {
 		req.session.score = score;
 
 
-		res.render('gameArtistName', { artists, previewTrackUrl, score });
+		res.render('gameArtistName', {
+			layout: 'gameboard-layout',
+			artists,
+			previewTrackUrl,
+			score,
+		});
 	} catch (err) {
 		console.error(err);
 		res.status(500).send('Error getting artists');
