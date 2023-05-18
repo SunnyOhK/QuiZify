@@ -24,8 +24,10 @@
 <button id="play-button">Play</button>
 {{#each artists}}
 <div class="artist-card">
-  <img src="{{this.picture}}" alt="{{this.name}}">
-  <h2>{{this.name}}</h2>
+  <a href="/quiz/?artistId={{id}}">
+  <img src="{{picture}}" alt="{{name}}">
+  <h2>{{name}}</h2>
+  </a>
 </div>
 {{/each}}
 

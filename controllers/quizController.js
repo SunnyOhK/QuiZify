@@ -3,7 +3,7 @@ const router = express.Router();
 const fetch = require('isomorphic-fetch');
 const Artist = require('../models/artist');
 const Song = require('../models/song');
-const { Op } = require('sequelize');
+
 
 
 // this will fetch a random set of 4 artists from the database
@@ -79,16 +79,32 @@ function shuffleArray(array) {
 router.get('/', async (req, res) => {
 	try {
 		const artists = await getRandomArtists();
-		const randomArtist = artists[Math.floor(Math.random() * artists.length)];
-		const previewTrackUrl = await getPreviewTrack(randomArtist.id);
-		console.log('Preview Track URL:', previewTrackUrl);
+		let randomArtist = artists[Math.floor(Math.random() * artists.length)];
+		let previewTrackUrl = await getPreviewTrack(randomArtist.id);
+		let score = req.session.score || 0;
+
+		if (req.query.artistId && req.query.artistId === randomArtist.id.toString()) {
+			const remainingTime = req.session.remainingTime || 0;
+			score += remainingTime * 10;
+			req.session.score = score;
+		}
+
+		req.session.remainingTime = 30;
+		req.session.score = score;
 
 
-		res.render('gameArtistName', { artists, previewTrackUrl });
+		res.render('gameArtistName', { artists, previewTrackUrl, score });
 	} catch (err) {
 		console.error(err);
 		res.status(500).send('Error getting artists');
 	}
+});
+
+router.use((req, res, next) => {
+	if (req.session.remainingTime) {
+		req.session.remainingTime -= 1;
+	}
+	next();
 });
 
 module.exports = router;
