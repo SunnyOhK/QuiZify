@@ -258,6 +258,40 @@ td {
   text-shadow: 1px 1px 3px #2b2b2b;
 }
 
+#score-contain {
+  background-color: var(--neon-pink);
+  padding-bottom: 188px;
+}
+
+#score-header {
+  font-size: 60px;
+  font-family: var(--helv);
+  color: white;
+  padding-top: 15px;
+}
+
+#score-number {
+  font-size: 44px;
+  color: white;
+  margin-top: -3px;
+}
+
+#results-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 46vw;
+}
+
+#song-results {
+  background-color: rgba(0, 0, 0, 0.746);
+  align-items: center;
+  justify-content: center;
+}
+
+#song-item {
+  text-align: center;
+}
+
 
 /* SOUNDWAVE ANIMATION */
 /* https://github.com/smarttechtip/*/
