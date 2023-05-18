@@ -125,6 +125,10 @@ footer {
   text-align: center;
   height: 4.4rem;
   margin-top: auto;
+  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 #footer-text {
