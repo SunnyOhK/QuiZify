@@ -2,39 +2,13 @@ const sequelize = require('../config/connection');
 const Artist = require('../models/artist');
 const Song = require('../models/song');
 const User = require('../models/user');
+const userData = require('./userData.json');
+
 const fetch = require('isomorphic-fetch');
 
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
-  const artistData = await fetchArtistsFromAPI();
-  const artists = await Artist.bulkCreate(artistData, { returning: true });
-
-  for (let artist of artists) {
-    const songData = await fetchSongsFromAPI(artist.id);
-
-    if (songData) {
-      const song = {
-        title: songData.title,
-        release_date: songData.release_date,
-        preview_track_url: songData.preview_track_url,
-        artist_id: artist.id,
-      };
-
-      await Song.create(song);
-    }
-  }
-};
-
-const syncAndSeedDatabase = async () => {
-  const userData = [];
-
-  await User.bulkCreate(userData);
-
-  await seedDatabase();
-};
-
+// Fetch Artist Data
 async function fetchArtistsFromAPI() {
-  const response = await fetch('https://api.deezer.com/chart/0/artists?limit=50');
+  const response = await fetch('https://api.deezer.com/chart/0/artists?limit=40');
   const data = await response.json();
 
   const artists = data.data.map((artist) => ({
@@ -46,6 +20,8 @@ async function fetchArtistsFromAPI() {
   return artists;
 }
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Fetch Songs
 async function fetchSongsFromAPI(artistId) {
   const response = await fetch(`https://api.deezer.com/artist/${artistId}/top?limit=1`);
   const data = await response.json();
@@ -60,11 +36,45 @@ async function fetchSongsFromAPI(artistId) {
   console.log('Preview Track URL:', previewTrackUrl);
 
   const song = {
+    id: trackId,
     title: data.data[0].title || '',
     release_date: data.data[0].release_date || '',
     preview_track_url: previewTrackUrl,
   };
   return song;
 }
+
+const seedDatabase = async () => {
+  const artistData = await fetchArtistsFromAPI();
+  const artists = await Artist.bulkCreate(artistData, { returning: true });
+
+  for (let artist of artists) {
+    const songData = await fetchSongsFromAPI(artist.id);
+
+    if (songData) {
+      const song = {
+        id:songData.id,
+        title: songData.title,
+        release_date: songData.release_date,
+        preview_track_url: songData.preview_track_url,
+        artist_id: artist.id,
+      };
+      // console.log(song);
+
+      await Song.create(song);
+    }
+  }
+
+};
+
+const syncAndSeedDatabase = async () => {
+  
+  await sequelize.sync({ force: true });
+
+  await User.bulkCreate(userData);
+
+  await seedDatabase();
+};
+
 
 syncAndSeedDatabase();
