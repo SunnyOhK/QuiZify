@@ -78,10 +78,18 @@ function shuffleArray(array) {
 // this is our GET route that handles rendering the gameArtistName.handlebars template
 router.get('/', async (req, res) => {
 	try {
+		const maxRounds = 5;
+		let round = req.session.round || 0;
+		let score = req.session.score || 0;
+		
+		if (round >= maxRounds) {
+			res.redirect('/results');
+			return;
+		}
+
 		const artists = await getRandomArtists();
 		let randomArtist = artists[Math.floor(Math.random() * artists.length)];
 		let previewTrackUrl = await getPreviewTrack(randomArtist.id);
-		let score = req.session.score || 0;
 
 		if (req.query.artistId && req.query.artistId === randomArtist.id.toString()) {
 			const remainingTime = req.session.remainingTime || 0;
@@ -91,6 +99,7 @@ router.get('/', async (req, res) => {
 
 		req.session.remainingTime = 30;
 		req.session.score = score;
+		req.session.round = round + 1;
 
 
 		res.render('gameArtistName', {
