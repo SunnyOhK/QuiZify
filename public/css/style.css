@@ -235,6 +235,16 @@ td {
   padding: 12px;
 }
 
+#game-textbox-name {
+  background-color: #F2AF2D;
+  color: white;
+  width: 46em;
+  height: 10em;
+  border-radius: 18px;
+  text-align: center;
+  padding: 12px;
+}
+
 #soundwave {
   height: 75px;
   width: auto;
@@ -252,6 +262,19 @@ td {
   transform: scale(1.1);
 }
 
+#name-choice {
+  background-color: rgba(0, 0, 0, 0.856);
+  font-family: var(--helv);
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+#name-choice:hover {
+  cursor: url('../assets/headphones.png'), auto;
+    transition: .2s ease-in-out;
+    transform: scale(1.1);
+}
+
 .play {
   font-family: 'Chelsea Market',
     cursive;
@@ -260,10 +283,24 @@ td {
   text-shadow: 2px 2px 2px #2b2b2b;
 }
 
+.play-name {
+  font-family: 'Chelsea Market',
+    cursive;
+  font-size: 60px;
+  color: #46395c;
+  text-shadow: 2px 2px 2px #ffffff;
+}
+
 .game-text {
   color: var(--white);
   font-size: 33px;
   text-shadow: 1px 1px 3px #2b2b2b;
+}
+
+.game-text-name {
+  color: #2B2B2B;
+  font-size: 33px;
+  text-shadow: 1px 1px 3px #ffffff;
 }
 
 #score-contain {
