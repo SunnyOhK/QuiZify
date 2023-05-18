@@ -3,16 +3,22 @@ const router = express.Router();
 const fetch = require('isomorphic-fetch');
 const Artist = require('../models/artist');
 const Song = require('../models/song');
+const { Op } = require('sequelize');
 
 
 // this will fetch a random set of 4 artists from the database
 async function getRandomArtists() {
 	try {
-		const artists = await Artist.findAll();
-		console.log('Retrieved Artists:', artists);
+		const artists = await Artist.findAll({
+			include: {
+				model: Song,
+				required: true,
+			},
+		});
+		
 		const shuffledArtists = shuffleArray(artists);
 		const randomArtists = shuffledArtists.slice(0, 4);
-		console.log('Random Artists', randomArtists);
+		
 		return randomArtists.map(artist => artist.toJSON());
 	} catch (err) {
 		throw new Error('Error getting artists');
@@ -43,7 +49,11 @@ async function getRandomArtists() {
 // this will fetch the song associated with the random artist from our database
 async function getPreviewTrack(artistID) {
 	try {
-		const song = await Song.findOne({ where: { artist_id: artistID } });
+		console.log('Artist ID:', artistID);
+		const song = await Song.findOne({ where: { artist_id: artistID } }).catch((error) => {
+		console.error('Error executing Song.findOne query', error);
+		throw new Error('Error occurred while fetching the song');
+		});
 		if (!song) {
 			throw new Error('Your song cannot be found');
 		}
