@@ -36,7 +36,7 @@
   <h1>qui<big>Z</big>ify</h1>
 
   <div class="background-container d-flex justify-content-center align-items-center"
-    style="background-image: url('../assets/boombox-muted-2.png');background-repeat: no-repeat; background-position: center; background-size: contain; width: 100%; padding-bottom: 30%;"
+    style="background-image: url('/assets/boombox-muted-2.png');background-repeat: no-repeat; background-position: center; background-size: contain; width: 100%; padding-bottom: 30%;"
     id="boombox">
   </div>
 
@@ -60,24 +60,8 @@
           <td scope><a href="/songs/{{song.id}}">{{song.title}} by {{song.artist.name}}</a></td>
           <td class="play-icon" data-id="{{song.id}}">▶︎</td>
         </tr>
-        <tr>
-          <th scope="row" class="delete-icon">⛔</th>
-          <td scope>{{ SAVED SONG }}</td>
-          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
-        </tr>
-        <tr>
-          <th scope="row" class="delete-icon">⛔</th>
-          <td scope>{{ SAVED SONG }}</td>
-          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
-        </tr>
-        <tr>
-          <th scope="row" class="delete-icon">⛔</th>
-          <td scope>{{ SAVED SONG }}</td>
-          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
-        </tr>
+
       </tbody>
     </table>
   </div>
 </main>
-
-<script src="./js/profile.js"></script>
