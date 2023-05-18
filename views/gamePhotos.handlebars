@@ -1,14 +1,79 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
-</div> 
+<!-- TELL THEM WHAT TO DO -->
+<div class="container-fluid" id="game-textbox" style="z-index: 2">
+  <h2 class="play">play !</h2>
+  <p class="game-text">Match the sound-byte with the artist's photo.</p>
+</div>
+
+<!-- TIMER -->
+
+
+<!-- SOUND WAVES -->
+<div class="container" id="wave-shadow" style="width: 36vw; position: relative; object-fit: cover; z-index: 1;">
+  <div class="soundbar" id="soundbox">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+</div>
+
+
+<!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
+<!-- Image blocks for 'Match Sound Byte with Artist Photo' -->
+<div class="container mb-2" style="position: relative; z-index: 1;">
+  <div class="row justify-content-center">
+    <div class="col-4 d-flex justify-content-center">
+      <img src="../public/assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice" width="350" height="350">
+    </div>
+    <div class="col-4 d-flex justify-content-center">
+      <img src="../public/assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice" width="350" height="350">
+    </div>
+  </div> <br>
+  <div class="row justify-content-center pb-3">
+    <div class="col-4 d-flex justify-content-center">
+      <img src="../public/assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice" width="350" height="350">
+    </div>
+    <div class="col-4 d-flex justify-content-center">
+      <img src="../public/assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice" width="350" height="350">
+    </div>
+  </div>
+</div>
