@@ -8,107 +8,151 @@
   <meta name="Description" content="Enter your description here" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Fredericka+the+Great&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Fredericka+the+Great&&family=Tilt+Neon&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../public/css/style.css">
-  
-  <title>QuiZify</title>
+
+  <title>quiZify</title>
 </head>
 
 <body>
-  <!-- TELL THEM WHAT TO DO -->
-  <div class="container game-textbox">
-    <h2 class="play">Play!</h2>
-    <p class="game-text">Match the sound-byte with the artist's photo.</p>
-  </div>
-  
-  <!-- TIMER -->
-  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navback">
+    <div class="container-fluid">
+      <div class="row align-items-center">
 
-  <!-- SOUND WAVES -->
-  <div class="container" style="width: 36vw; object-fit: cover">
-    <div class="soundbar" id="soundbox">
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
+        <div class="container-fluid">
+          <div class="row align-items-center">
+
+            <!-- ! NAV BAR WILL CHANGE TO 'HOME' ONLY -->
+            <!--* FIRST COLUMN : Logo & Basic Nav *-->
+            <div class="col ms-4" style="width: 33.33vw">
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <a class="navbar-brand" id="logo-text">Z</a>
+                <ul class="navbar-nav" id="navbar-text">
+                  <li class="nav-item me-2">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--* SECOND COLUMN : Welcome! *-->
+            <div class="col" style="width: 33.33vw; text-align: center;">
+              <span class="navbar-text" id="welcome">Match Song + Photo</span>
+            </div>
+
+            <!--* THIRD COLUMN : Login/Logout *-->
+            <div class="col me-4" style="width: 33.33vw; text-align: end;">
+              <button class="btn btn-light login" href="#">Logout</button>
+            </div>
+          </div>
+        </div>
+  </nav>
+
+
+  <h1 class="gameboard-title">qui<big>Z</big>ify</h1>
+
+  <main>
+
+    <div class="background-container">
+      <div class="background-image d-flex justify-content-center align-items-center" style="position: absolute; top: 0; left: 0; background-image: url('../assets/gameboard-bg.png');background-repeat: repeat; background-position: center; background-size: contain; width: 99.1vw; height: 100vh; padding-bottom: 40%; z-index: -4;">
+
+      </div>
+    </div> ">
     </div>
-  </div>
+    <!-- TELL THEM WHAT TO DO -->
+    <div class="container" id="game-textbox" style="z-index: 2;">
+      <h2 class="play">play !</h2>
+      <p class="game-text">Match the sound-byte with the artist's photo.</p>
+    </div>
+
+    <!-- TIMER -->
 
 
-  <!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
+    <!-- SOUND WAVES -->
+    <div class="container" id="wave-shadow" style="width: 36vw; position: relative; object-fit: cover; z-index: 1;">
+      <div class="soundbar" id="soundbox">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+    </div>
+
+
+    <!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
     <!-- Image blocks for 'Match Sound Byte with Artist Photo' -->
-    <div class="container">
+    <div class="container" style="position: relative; z-index: 1;">
       <div class="row justify-content-center">
         <div class="col-4 d-flex justify-content-center">
-          <img src="../../assets/img-placholder.png" alt="Image 1">
+          <img src="../../assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice-1" width="350">
         </div>
         <div class="col-4 d-flex justify-content-center">
-          <img src="../../assets/img-placholder.png" alt="Image 2">
+          <img src="../../assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice-2">
         </div>
       </div> <br>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center pb-3">
         <div class="col-4 d-flex justify-content-center">
-          <img src="../../assets/img-placholder.png" alt="Image 3">
+          <img src="../../assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice-3">
         </div>
         <div class="col-4 d-flex justify-content-center">
-          <img src="../../assets/img-placholder.png" alt="Image 4">
+          <img src="../../assets/img-placholder.png" alt="{{ artist.name }}" id="image-choice-4">
         </div>
       </div>
     </div>
 
-  <img src="../assets/concert-crowd.png" style="width: 99vw; ">
-  
-  <footer class="footer">
+    <!-- <img src="../assets/concert-crowd.png" style="width: 99vw; "> -->
+
+  <footer class="footer d-flex align-items-center justify-content-center">
     <p class="text-center my-3 fs-5" id="footer-text"><span
         style="font-family: 'Chelsea Market', 'cursive'"><big>Z</big></span>&nbsp&nbsp&nbsp &#169 2023 | UT Coding
       Bootcamp Team 6 WebDev &nbsp&nbsp&nbsp<span style="font-family: 'Chelsea Market', 'cursive'"><big>Z</big></span>
     </p>
-
   </footer>
 
-  <script src="../public/js/timer.js"></script>
+
+    <script src="../public/js/timer.js"></script>
 </body>
 
 </html>

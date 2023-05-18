@@ -1,47 +1,37 @@
-const newFormHandler = async (event) => {
-  event.preventDefault();
+const renderQueue = async () => {
+  const response = await fetch('/api/songs', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
-
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert(response.statusText);
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('delete-icon')) {
+    const songId = event.target.dataset.songId;
+    // Send a delete request to the server
+    fetch(`/songs/${songId}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.ok) {
+        } else {
+          throw new Error('Failed to delete song');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
-};
+});
 
 document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+  .getElementById('logout')
+  .addEventListener('click', logout);
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);

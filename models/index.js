@@ -13,7 +13,6 @@ Artist.hasMany(Song, {
     onDelete: 'CASCADE',
 });
 
-
 // Song belongTo User
 
 Song.belongsTo(User, { foreignKey: 'user_id' })
@@ -21,19 +20,6 @@ User.hasMany(Song, {
     foreignKey: 'user__id',
     onDelete: 'CASCADE',
 });
-
-// Song.belongsToMany(User, {
-//     through: {
-//         model: UserSong
-//     },
-//     as: 'songs'
-// });
-// User.belongsToMany(Song, {
-//     through: {
-//         model: UserSong
-//     },
-//     as: 'user_songs'
-// });
 
 
 module.exports = { User, Artist, Song };
