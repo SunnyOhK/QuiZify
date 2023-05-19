@@ -3,6 +3,7 @@
   --neon-blue: #008AF6;
   --neon-green: #26f600;
   --neon-yellow: #F1F751;
+  --neon-purple: #7C66BB;
   --dark-grey: #676767;
   --white: #ffffff;
   --chelsea: 'Chelsea Market', cursive;
@@ -21,7 +22,7 @@ h1 {
   font-family: 'Chelsea Market',
     cursive;
   text-align: center;
-  margin-top: .3em;
+  margin-top: -43px;
   margin-bottom: .3em;
   position: relative;
 }
@@ -55,11 +56,16 @@ h1 {
   font-size: 68px;
 }
 
+#logo-text:hover {
+  cursor: default;
+  text-decoration: none;
+}
+
 #login-column {
   display: flex;
-    margin-right: 2px !important;
-    justify-content: flex-end;
-    padding-right: 20px;
+  margin-right: 2px !important;
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .login {
@@ -70,8 +76,8 @@ h1 {
 }
 
 .login:hover {
-  /* background-color: #cecece00; */
-  /* text-shadow: 2px 1px var(--neon-blue); */
+  color: var(--neon-purple);
+  text-shadow: 3px 1px #372b25;
   transition: .2s ease-in-out;
   transform: scale(1.3);
 }
@@ -102,10 +108,9 @@ h1 {
 .genre-dropdown {
   justify-content: center;
   align-items: center;
-
 }
 
-#dropdownMenuButton2 {
+#ddButton {
   font-family: var(--helv);
   font-size: 23px;
   background-color: #2b2b2b65;
@@ -114,22 +119,78 @@ h1 {
   border: 1px solid black;
 }
 
+#ddButton:hover,
+#ddButton:active {
+  background-color: var(--neon-purple);
+  cursor: url('../assets/headphones.png'),
+    auto;
+  color: white;
+  box-shadow: none;
+}
+
 #genre-list {
-  background-color: #f1f74bdb;
+  background-color: var(--neon-yellow);
   font-family: var(--helv);
   font-size: 21px;
   padding-left: 4px;
   padding-right: 4px;
 }
 
+#genre-li:hover {
+  background-color: var(--neon-yellow);
+  text-decoration: none;
+}
+
+.card-body {
+  height: 380px;
+}
+
+#g-card {
+  font-family: var(--helv);
+  padding: 18px;
+  font-size: 26px;
+}
+
+#g-notes {
+  font-size: var(--chelsea);
+  font-size: 24px;
+}
+
+#card-desc {
+  font-family: var(--helv);
+  font-size: 26px;
+  padding-top: 22px;
+  padding-bottom: 7px;
+  line-height: 2px;
+}
+
+#card-btn {
+  font-family: var(--helv);
+  position: relative;
+  width: 100%;
+  font-size: 24px;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+#card-btn:hover {
+  cursor: url('../assets/headphones.png'),
+    auto;
+  text-decoration: none !important;
+  background-color: black;
+  box-shadow: inset 0 0 3px 3px var(--neon-pink);
+  color: var(--neon-pink);
+}
+
 .boombox {
   margin: 4.4em auto 5em auto;
-  background-image: url('../../public/assets/boombox-muted.png');
+  background-image: url('../../assets/boombox-muted.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   width: 100%;
-  padding-bottom: 30%;
+  padding-bottom: 20%;
 }
 
 footer {
@@ -271,8 +332,8 @@ td {
 
 #name-choice:hover {
   cursor: url('../assets/headphones.png'), auto;
-    transition: .2s ease-in-out;
-    transform: scale(1.1);
+  transition: .2s ease-in-out;
+  transform: scale(1.1);
 }
 
 .play {
