@@ -1,6 +1,6 @@
-const User = require('./user');
-const Song = require('./song');
 const Artist = require('./artist');
+const Song = require('./song');
+const User = require('./user');
 
 // Associations 
 // Songs belongs to Artist
@@ -22,4 +22,4 @@ User.hasMany(Song, {
 });
 
 
-module.exports = { User, Artist, Song };
+module.exports = { Artist, User, Song };
