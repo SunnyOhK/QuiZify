@@ -1,5 +1,5 @@
 <!-- TELL THEM WHAT TO DO -->
-<div class="container-fluid" id="game-textbox-name" style="z-index: 2">
+<div class="container" id="game-textbox-name" style="z-index: 2">
   <h2 class="play-name">play !</h2>
   <p class="game-text-name">Match the sound-byte with the artist's name.</p>
 </div>
@@ -60,13 +60,12 @@
 
 <!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
 <div class="container" id="audio-box">
-  jkalgfjioawe
-<audio id="audioPlayer" controls>
-  <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
-</audio>
+  <audio id="audioPlayer" style="width: 350px;" controls>
+    <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
+  </audio>
 </div>
-{{!-- <!-- Button blocks for 'Match Sound Byte with Artist Name' -->
-<div class="container">
+<!-- Button blocks for 'Match Sound Byte with Artist Name' -->
+<div class="container" style="margin-top: 40px; margin-bottom: 40px">
   {{#each artists}}
   <div class="row justify-content-center mb-2">
     <div class="col d-flex justify-content-center">
@@ -75,7 +74,7 @@
     </div>
   </div>
   {{/each}}
-</div> --}}
+</div>
 
 
 <script src="/js/quiz.js"></script>
