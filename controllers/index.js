@@ -5,6 +5,7 @@ const homeRoutes = require('./homeRoutes');
 // const logoutRoutes = require('./logoutRoutes');
 const quizController = require('./quizController');
 const songRoutes=require('./songRoutes')
+const playAgain = require('./playAgain');
 
 
 router.use('/songs', songRoutes);
@@ -13,6 +14,7 @@ router.use('/', homeRoutes);
 // router.use('/auth/deezer', loginRoutes);
 // router.use('/logout', logoutRoutes);
 router.use('/quiz', quizController);
+router.use('/play-again', playAgain);
 
 
 router.get('/results', async (req, res) => {
@@ -29,16 +31,7 @@ router.get('/results', async (req, res) => {
   }
 });
 
-router.get('/quiz/preview', async function (req, res) {
-  const artistId = req.query.artistId;
-  const previewTrackUrl = await getPreviewTrackUrl(artistId);
 
-  if (previewTrackUrl) {
-    res.json({ previewTrackUrl: previewTrackUrl });
-  } else {
-    res.status(404).json({ message: "Preview track not found for the given artist ID." });
-  }
-});
 
 
 module.exports = router;

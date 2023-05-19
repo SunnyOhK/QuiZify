@@ -56,8 +56,15 @@ async function getSongData(previewTrackUrl) {
 		if (!song) {
 			throw new Error('Your song cannot be found');
 		}
+		
+		const artist = await Artist.findOne({ where: { id: song.artist_id } });
+		if (!artist) {
+			throw new Error('Your artist cannot be found');
+		}
 
-		return song.toJSON();
+		const songData = song.toJSON();
+		songData.artistName = artist.name;
+		return songData;
 	} catch (err) {
 		throw new Error('Error getting song data');
 	}
@@ -87,15 +94,20 @@ router.get('/', async (req, res) => {
 
 router.get('/results', async (req, res) => {
 	try {
-		const randomArtist = req.session.randomArtist;
-		const previewTrackUrl = await getPreviewTrack(randomArtist.id);
+		const randomArtistId = req.session.randomArtist.id;
+		const previewTrackUrl = await getPreviewTrack(randomArtistId);
 		const songData = await getSongData(previewTrackUrl);
+		
 		playedSongs.push(songData);
-		console.log(playedSongs);
+		req.session.playedSongs = playedSongs;
+		req.session.artistName = songData.artistName;
+		console.log('Song Data:', songData);
+		console.log('Played Song:', playedSongs);
 		res.render('results', {
 			layout: 'gameboard-layout',
 			songs: req.session.playedSongs,
-			songData: songData
+			songData: songData,
+			
 		});
 	} catch (err) {
 		console.error(err);
