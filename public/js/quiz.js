@@ -9,19 +9,19 @@ function updateAudioSource(previewTrackUrl) {
 
 function togglePlay() {
   const audio = document.getElementById('audioPlayer');
+  const playButton = document.getElementById('play-button');
+
   if (isPlaying) {
     audio.pause();
+    
   } else {
     audio.play();
-
-    if (!timerInterval) {
-      startTimer();
-    }
-    isPlaying = !isPlaying;
-
-    const playButton = document.getElementById('play-button');
-    playButton.textContent = isPlaying ? 'Pause' : 'Play';
+    startTimer();
   }
+
+  isPlaying = !isPlaying;
+  playButton.textContent = isPlaying ? 'Pause' : 'Play';
+}
 
   function startTimer() {
     const timerDisplay = document.getElementById('timer');
@@ -36,7 +36,7 @@ function togglePlay() {
       }
     }, 1000);
   }
-}
+
 
 
   function fetchPreviewTrackUrl() {
