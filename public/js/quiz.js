@@ -79,3 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nextRound();
 });
+
