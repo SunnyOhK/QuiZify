@@ -1,16 +1,11 @@
 
 
-
-// document.querySelector('.login-button').addEventListener('click', () => {
-//   window.location.href = '/auth/deezer';
-// });
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('#signup-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const formData = Object.fromEntries(new FormData(event.target));
-
+document.querySelector('#signup-form').addEventListener('submit', function (event) {
+  console.log('Form submitted!');
+  event.preventDefault();
+  
+  const formData = Object.fromEntries(new FormData(event.target));
+  
     fetch('/api/signup', {
       method: 'POST',
       headers: {
@@ -18,17 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       body: JSON.stringify(formData)
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.log('Error:', error);
-
-      });
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.log('Error:', error);
+      
+    });
   });
+  
 
-  document.querySelector('.login-form').addEventListener('submit', function (event) {
+  
+  document.querySelector('#login-form').addEventListener('submit', function (event) {
     console.log('Form submitted!');
     event.preventDefault();
 
@@ -49,6 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Error:', error);
       });
   });
-});
+
 
 

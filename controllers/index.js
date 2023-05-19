@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
-const loginRoutes = require('./api/loginroute');
-// const logoutRoutes = require('./logoutRoutes');
 const quizController = require('./quizController');
 const songRoutes=require('./songRoutes')
 const playAgain = require('./playAgain');
@@ -10,12 +8,9 @@ const playAgain = require('./playAgain');
 
 
 router.use('/api', apiRoutes);
-
-router.use('/songs', songRoutes);
 router.use('/', homeRoutes);
-// router.use('/auth/deezer', loginRoutes);
-// router.use('/logout', logoutRoutes);
 router.use('/quiz', quizController);
+router.use('/songs', songRoutes);
 router.use('/play-again', playAgain);
 
 
