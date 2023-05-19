@@ -16,6 +16,12 @@ body {
   flex-direction: column;
 }
 
+body.cz-shortcut-listen {
+  /* Override any unwanted styles */
+  /* For example, you can set display:none to hide the element */
+  display: none !important;
+}
+
 /** HOMEPAGE **/
 h1 {
   font-size: 80px;
