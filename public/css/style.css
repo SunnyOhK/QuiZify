@@ -395,6 +395,24 @@ td {
   font-size: 100px;
   color: white;
 }
+
+#view-results {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.results-link {
+  font-size: 40px;
+  color: #46395c;
+  font-family: var(--chelsea);
+  background-color: #F2AF2D;
+  padding: 5px;
+}
+
+.results-link:hover {
+  text-decoration: none;
+  color: white !important;
+}
 /* .play {
   font-family: 'Chelsea Market',
     cursive;
@@ -444,7 +462,7 @@ td {
 #results-table {
   margin-left: auto;
   margin-right: auto;
-  width: 46vw;
+  width: 55vw;
 }
 
 #song-results {
@@ -455,6 +473,18 @@ td {
 
 #song-item {
   text-align: center;
+}
+
+.play-again-btn {
+  display: flex;
+}
+
+#p-ag-btn {
+  background-color: #F7B52E;
+  font-family: var(--chelsea);
+  color: #2b2b2b;
+  text-shadow: 1px 1px 3px #ffffff;
+  font-size: 28px;
 }
 
 

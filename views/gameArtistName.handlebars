@@ -54,6 +54,12 @@
   </div>
 </div>
 
+<div class="container" id="audio-box" style="width: 100vw; margin-bottom: 30px">
+<audio id="audioPlayer" controls autoplay>
+  <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
+</audio>
+</div>
+
 <div class="container">
   {{#each artists}}
   <div class="row justify-content-center mb-2">
@@ -66,10 +72,8 @@
 </div>
 
 
-<audio id="audioPlayer" controls autoplay>
-  <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
-</audio>
-
-<a href="quiz/results">View results</a>
+<div class="container" id="view-results" style="width: 100vw; justify-content-center">
+<a class="results-link" href="quiz/results">View Results</a>
+</div>
 
 <script src="/js/quiz.js"></script>
