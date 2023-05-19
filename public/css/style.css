@@ -286,6 +286,18 @@ td {
   margin-bottom: -10px;
 }
 
+.wild-music {
+  margin: 4.4em auto 5em auto;
+  background-image: url('../../assets/gameboard-bg.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+  width: 99.1vw;
+  height: 100%;
+  z-index: -3;
+  padding-bottom: 20%;
+}
+
 #game-textbox {
   background-color: #7C66BB;
   color: white;
@@ -294,6 +306,7 @@ td {
   border-radius: 18px;
   text-align: center;
   padding: 12px;
+  z-index: 2;
 }
 
 #game-textbox-name {
@@ -311,6 +324,7 @@ td {
   width: auto;
   margin-top: 10px;
   margin-bottom: 20px;
+  z-index: 2;
 }
 
 #artist-image {
@@ -323,26 +337,33 @@ td {
   transform: scale(1.1);
 }
 
-#name-choice {
+.name-choice {
   background-color: rgba(0, 0, 0, 0.856);
+  color: white;
   font-family: var(--helv);
-  font-size: 20px;
+  font-size: 26px;
   border-radius: 12px;
 }
 
-#name-choice:hover {
-  cursor: url('../assets/headphones.png'), auto;
-  transition: .2s ease-in-out;
-  transform: scale(1.1);
+#play-btn-contain {
 }
 
-.play {
+#audio-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  font-size: 100px;
+  color: white;
+}
+/* .play {
   font-family: 'Chelsea Market',
     cursive;
   font-size: 60px;
   color: var(--white);
   text-shadow: 2px 2px 2px #2b2b2b;
-}
+} */
 
 .play-name {
   font-family: 'Chelsea Market',

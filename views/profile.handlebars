@@ -40,7 +40,6 @@
     id="boombox">
   </div>
 
-{{#if songs.length}}
   <div class="container-fluid" id="table-contain">
     <p class="text-center" id="song-queue">Song Queue:</p>
     <table class="table">
@@ -51,16 +50,15 @@
           <th scope="col" style="width: 22%">Play</th>
         </tr>
       </thead>
-{{#each songs as |song|}}
       <tbody>
+{{#each songs}}
         <tr>
           <th scope="row" class="delete-icon">⛔</th>
-          <td scope><a href="/songs/{{song.id}}">{{song.title}} by {{song.artist.name}}</a></td>
-          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
+          <td scope><a href="/songs/{{this.id}}">{{this.title}} by {{this.artist.name}}</a></td>
+          <td class="play-icon" data-id="{{this.id}}">▶︎</td>
         </tr>
-      </tbody>
       {{/each}}
+      </tbody>
     </table>
   </div>
-  {{/if}}
-</main>
+
