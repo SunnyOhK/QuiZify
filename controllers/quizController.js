@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const fetch = require('isomorphic-fetch');
 const { Artist, Song } = require('../models');
 
 // Fetch a random set of 4 artists from the database
 async function getRandomArtists() {
 	try {
 		const artists = await Artist.findAll({
-			include: Song,
+			include: {
+				model: Song,
+				required: true 
+			}
 		});
 
 		const shuffledArtists = shuffleArray(artists);
@@ -47,43 +49,57 @@ function shuffleArray(array) {
 	return shuffledArray;
 }
 
-// GET route for rendering the gameArtistName.handlebars template
-router.get('/', async (req, res) => {
+async function getSongData(previewTrackUrl) {
 	try {
-		const maxRounds = 5;
-		const round = req.session.round || 0;
-		let score = req.session.score || 0;
+		const song = await Song.findOne({ where: { preview_track_url: previewTrackUrl } });
 
-		if (round >= maxRounds) {
-			return res.redirect('/results');
+		if (!song) {
+			throw new Error('Your song cannot be found');
 		}
 
+		return song.toJSON();
+	} catch (err) {
+		throw new Error('Error getting song data');
+	}
+}
+
+// GET route for rendering the gameArtistName.handlebars template
+let playedSongs = [];
+
+router.get('/', async (req, res) => {
+	try {
 		const artists = await getRandomArtists();
 		const randomArtist = artists[Math.floor(Math.random() * artists.length)];
 		const previewTrackUrl = await getPreviewTrack(randomArtist.id);
 
-		if (req.query.artistId && req.query.artistId === randomArtist.id.toString()) {
-			const remainingTime = req.session.remainingTime || 0;
-			score += remainingTime * 10;
-			req.session.score = score;
-		}
-
-		req.session.remainingTime = 30;
-		req.session.score = score;
-		req.session.round = round + 1;
+		req.session.randomArtist = randomArtist;
 
 		return res.render('gameArtistName', {
 			layout: 'gameboard-layout',
 			artists,
 			previewTrackUrl,
-			score,
 		});
 	} catch (err) {
 		console.error(err);
-		return res.status(500).render('error', {
+		return res.status(500).json({ message: 'Error getting artists' });
+	}
+});
+
+router.get('/results', async (req, res) => {
+	try {
+		const randomArtist = req.session.randomArtist;
+		const previewTrackUrl = await getPreviewTrack(randomArtist.id);
+		const songData = await getSongData(previewTrackUrl);
+		playedSongs.push(songData);
+		console.log(playedSongs);
+		res.render('results', {
 			layout: 'gameboard-layout',
-			message: 'Error getting artists',
+			songs: req.session.playedSongs,
+			songData: songData
 		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Error getting song data');
 	}
 });
 

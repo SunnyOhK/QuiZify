@@ -56,25 +56,22 @@
   </div>
 </div>
 
-
-<button id="play-button">Play</button>
-<!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
-<!-- Button blocks for 'Match Sound Byte with Artist Name' -->
 <div class="container">
   {{#each artists}}
   <div class="row justify-content-center mb-2">
     <div class="col d-flex justify-content-center">
-      <button class="btn btn-secondary" class="name-choice" type="button"
-        style="width: 400px; height: 50px;">{{this.name}}</button>
+      <button class="btn btn-secondary name-choice" data-artist-id="{{this.id}}" type="button"
+        style="width: 400px; height: 50px;" onclick="window.location.reload();">{{this.name}}</button>
     </div>
   </div>
   {{/each}}
 </div>
 
-
-<audio id="audioPlayer">
+{{!-- <audio id="audioPlayer" controls autoplay>
   <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
-</audio>
+</audio> --}}
+
+<a href="quiz/results">View results</a>
 
 
 
@@ -82,4 +79,4 @@
 
 
 
-<script src="/js/quiz.js"></script>
+

@@ -1,17 +1,10 @@
 const router = require('express').Router();
+const { Song } = require('../models');
+const { Op } = require('sequelize');
 
-router.get('/results', async (req, res) => {
-  try {
-    const score = req.session.score || 0;
 
-    res.render('results', {
-      layout: 'gameboard-layout',
-      score,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error getting score');
-  }
+router.get('/results', (req, res) => {
+  res.render('results', { layout: 'gameboard-layout', songs: playedSongs });
 });
 
 module.exports = router;

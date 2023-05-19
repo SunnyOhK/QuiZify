@@ -29,5 +29,16 @@ router.get('/results', async (req, res) => {
   }
 });
 
+router.get('/quiz/preview', async function (req, res) {
+  const artistId = req.query.artistId;
+  const previewTrackUrl = await getPreviewTrackUrl(artistId);
+
+  if (previewTrackUrl) {
+    res.json({ previewTrackUrl: previewTrackUrl });
+  } else {
+    res.status(404).json({ message: "Preview track not found for the given artist ID." });
+  }
+});
+
 
 module.exports = router;
