@@ -123,20 +123,22 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form>
+                      <form class="signup-form" id="signup-form">
                         <div class="mb-3">
                           <label for="username" class="form-label">Username</label>
-                          <input type="text" class="form-control" id="name-signup">
+                          <input type="text" class="form-control" id="name-signup" name="name">
                           <label for="email-signup" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="email-signup" aria-describedby="emailHelp">
+                          <input type="email" class="form-control" id="email-signup" name="email"
+                            aria-describedby="emailHelp">
                           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                           <label for="password-signup" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="password-signup">
+                          <input type="password" class="form-control" id="password-signup" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -153,6 +155,7 @@
   <h1 class="home-title">qui<big>Z</big>ify</h1>
 
   <main class="boombox" style="height: 100vh">
+
 
     <div class="dropdown row justify-content-center mt-4" id="genre-dropdown">
       <p style="line-height: 1px;"><span style="margin-right: 1px;"></span></p>
