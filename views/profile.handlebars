@@ -10,15 +10,13 @@
         </tr>
       </thead>
       <tbody>
-{{#if songs.length}}
+{{#each songs}}
         <tr>
           <th scope="row" class="delete-icon">⛔</th>
-{{#each songs as |song|}}
-          <td scope><a href="/songs/{{song.id}}">{{song.title}} by {{song.artist.name}}</a></td>
-          <td class="play-icon" data-id="{{song.id}}">▶︎</td>
-      {{/each}}
+          <td scope><a href="/songs/{{this.id}}">{{this.title}} by {{this.artist.name}}</a></td>
+          <td class="play-icon" data-id="{{this.id}}">▶︎</td>
         </tr>
-  {{/if}}
+      {{/each}}
       </tbody>
     </table>
   </div>
