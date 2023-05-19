@@ -1,20 +1,18 @@
 const router = require('express').Router();
 const { Song, User, Artist } = require('../models');
 
-
 async function getName(req){
       const dbUser = await User.findOne({
-      where: {
+      attributes: {
         username: req.body.username,
       },
     });
     const name = dbUser.get({ plain: true });
     return name;
 }
-
 async function getSongs(req){
-      const dbSong = await Song.findAll({
-      where: {
+      const dbSong = await Song.findAll( {
+      attributes: {
         id: req.body.id,
         title: req.body.title,
       },
@@ -28,19 +26,16 @@ router.get('/', async (req, res) => {
   try {
     const name=getName(req);
     const songs=getSongs(req);
-
     res.render('profile', {
-      layout: 'main',
+      layout: 'pro-main',
       name,
       songs,
     })
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 })
-
 
 router.delete('/:id', async (req, res) => {
   try {
@@ -50,16 +45,13 @@ router.delete('/:id', async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-
     if (!songData) {
       res.status(404).json({ message: 'Song not found' });
       return;
     }
-
     res.status(200).json(songData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 module.exports = router;
