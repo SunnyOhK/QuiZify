@@ -1,13 +1,14 @@
 const router = require('express').Router();
 // const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
-// const loginRoutes = require('./loginRoutes');
+const loginRoutes = require('./api/loginroute');
 // const logoutRoutes = require('./logoutRoutes');
 const quizController = require('./quizController');
 const songRoutes=require('./songRoutes')
 const playAgain = require('./playAgain');
 
 
+router.use('/api', loginRoutes);
 router.use('/songs', songRoutes);
 router.use('/', homeRoutes);
 // router.use('/api', apiRoutes);
