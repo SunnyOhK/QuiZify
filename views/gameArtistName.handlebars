@@ -4,8 +4,6 @@
   <p class="game-text-name">Match the sound-byte with the artist's name.</p>
 </div>
 
-<!-- TIMER -->
-
 
 <!-- SOUND WAVES -->
 <div class="container" id="wave-shadow" style="width: 36vw; position: relative; object-fit: cover; z-index: 1;">
@@ -56,30 +54,28 @@
   </div>
 </div>
 
+{{!-- <div class="container-fluid" id="play-btn-contain">
+  <button id="play-button">Play</button>
+</div> --}}
 
-<button id="play-button">Play</button>
 <!-- CONTAINER FOR EITHER IMAGES OR ARTIST NAME -->
-<!-- Button blocks for 'Match Sound Byte with Artist Name' -->
+<div class="container" id="audio-box">
+  jkalgfjioawe
+<audio id="audioPlayer" controls>
+  <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
+</audio>
+</div>
+{{!-- <!-- Button blocks for 'Match Sound Byte with Artist Name' -->
 <div class="container">
   {{#each artists}}
   <div class="row justify-content-center mb-2">
     <div class="col d-flex justify-content-center">
-      <button class="btn btn-secondary" class="name-choice" type="button"
+      <button class="btn btn-secondary name-choice" type="button"
         style="width: 400px; height: 50px;">{{this.name}}</button>
     </div>
   </div>
   {{/each}}
-</div>
-
-
-<audio id="audioPlayer">
-  <source src='{{previewTrackUrl}}' id="audioSource" type="audio/mpeg">
-</audio>
-
-
-
-
-
+</div> --}}
 
 
 <script src="/js/quiz.js"></script>
