@@ -8,7 +8,7 @@
     "start": "node server.js",
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js",
-    "heroku-postbuild": "npm run build"
+    "build": "heroku-postbuild"
   },
   "keywords": [],
   "author": "",
