@@ -1,31 +1,28 @@
 const router = require('express').Router();
 const { Song, User, Artist } = require('../models');
 
-async function getName(req){
-      const dbUser = await User.findOne({
+router.get('/', async (req, res) => {
+  try {
+    const dbUser = await User.findOne({
       attributes: {
         username: req.body.username,
       },
     });
     const name = dbUser.get({ plain: true });
-    return name;
-}
-async function getSongs(req){
-      const dbSong = await Song.findAll( {
+
+    const { count, rows } = await Song.findAndCountAll({
       attributes: {
         id: req.body.id,
         title: req.body.title,
       },
       include: { model: Artist, attributes: ['name'] },
-    })
-    const songs=dbSong.map((song)=>song.get({plain:true}));
-    return songs;
-}
-// Get username
-router.get('/', async (req, res) => {
-  try {
-    const name=getName(req);
-    const songs=getSongs(req);
+
+      offset: 10,
+      limit: 5
+    });
+
+    const songs =rows.map((song) => song.get({ plain: true }));
+
     res.render('profile', {
       layout: 'pro-main',
       name,
