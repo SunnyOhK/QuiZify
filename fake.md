@@ -4,7 +4,7 @@
 <br>
 
 ## Description
-This application demonstrates a user friendly platform to engage in a music based quiz game that involves the user listening to a short clip of a song and having to correctlty match the song with the corresponding artist. Whenever the user is finished with the quiz, it will display the correct answer allowing the user to view it and also play the same clip again. 
+This .
 
 ## Table of Contents
 
@@ -18,19 +18,21 @@ This application demonstrates a user friendly platform to engage in a music base
 
 ## Installation
 
-Clone the repository to your local machine and then run npm i to install all neccessary modules that you will need. 
-Follow the on-screen instructions and login/sign up for returning users.
-Start playing and have fun testing your music knowledge!
+This application 
 
 
 
 ## Usage 
 
-The user 
+A:
 
 ### Demo:
+* How it started:
+    <img src="assets/demo-images/quizify-wireframe.png">
 
-https://quizify.herokuapp.com/ 
+* How it's going:
+    <img src="assets/demo-images/.png">
+
 
 ## Technology Stack
 
@@ -52,12 +54,16 @@ https://quizify.herokuapp.com/
 
 
 
+## Credits
+
+- A
+
 
 ## License
 This project is licensed under: [MIT](https://choosealicense.com/licenses/mit/)
 <br>
 
-## Credits/Contact
+## Contact
 
 For questions, please contact:
 

@@ -10,9 +10,9 @@
     <tbody>
       {{#each songs as |song|}}
       <tr id="song-results">
-        <th scope="col" id="add-song" style="width: 22%">➕</th>
-        <td scope="col" style="width: 56%">{{song.title}} by {{artistName.name}}</td>
-        <td scope="col" class="play-icon" id="play-song" style="width: 22%">▶︎</td>
+        <th scope="col" id="add-song" style="width: 20%">➕</th>
+        <td scope="col" style="width: 60%">{{this.title}} by {{this.artistName}}</td>
+        <td scope="col" class="play-icon" id="play-song" style="width: 20%">▶︎</td>
       </tr>
       {{/each}}
     </tbody>
@@ -20,8 +20,6 @@
 </div>
 
 <!-- Play Again Button -->
-<div id="play-again-btn">
-  <form action="/play-again" method="POST">
-    <button class="btn btn-secondary" type="submit" style="width: 400px; height: 50px;">Play Again</button>
+  <form action="/play-again" method="POST" style="width: 100vw; justify-content: center; display: flex; align-items: center;">
+    <button class="btn btn-secondary" id="p-ag-btn" type="submit" style="width: 350px; height: 75px;">Play Again</button>
   </form>
-</div>
