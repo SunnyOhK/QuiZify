@@ -54,8 +54,7 @@ app.engine('handlebars', handlebars.engine);
 
 app.set('view engine', 'handlebars');
 
-// serve static files from public directory
-app.use(express.static('public'));
+
 
 
 app.use(express.json());
