@@ -9,7 +9,6 @@ const helpers = require('./utils/helpers');
 const bodyParser = require('body-parser');
 
 dotenv.config();
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
