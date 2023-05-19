@@ -4,9 +4,10 @@ const homeRoutes = require('./homeRoutes');
 // const loginRoutes = require('./loginRoutes');
 // const logoutRoutes = require('./logoutRoutes');
 const quizController = require('./quizController');
+const songRoutes=require('./songRoutes')
 
 
-
+router.use('/songs', songRoutes);
 router.use('/', homeRoutes);
 // router.use('/api', apiRoutes);
 // router.use('/auth/deezer', loginRoutes);
