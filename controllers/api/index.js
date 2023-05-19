@@ -1,15 +1,7 @@
-// const router = require('express').Router();
-// const userRoutes = require('./ ------ Routes');
-// const projectRoutes = require('./ ------ Routes');
+const router = require('express').Router();
+const loginRoutes = require('./loginRoutes');
 
-// router.use('/ ----- ', userRoutes);
-// router.use('/ ----- ', projectRoutes);
+router.use('/login', loginRoutes);
 
-// module.exports = router;
+module.exports = router;
 
-// const router = require('express').Router();
-
-// const artistRoutes = require('./api/artistRoutes');
-// router.use('/artist', artistRoutes);
-
-// module.exports = router;

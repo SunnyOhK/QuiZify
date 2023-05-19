@@ -27,16 +27,29 @@ app.use(
   );
   
   //handlebars
-  app.engine(
-    'handlebars', 
-    exphbs({
-      defaultLayout: 'main',
-      extname: '.handlebars',
-      helpers: {
-        previewTrackUrls: helpers.previewTrackUrls,
-      },
-    })
-    );
+  // app.engine(
+  //   'handlebars', 
+  //   exphbs({
+  //     defaultLayout: 'main',
+  //     extname: '.handlebars',
+  //     helpers: {
+  //       previewTrackUrls: helpers.previewTrackUrls,
+  //     },
+  //   })
+  //   );
+
+  const handlebars = exphbs.create({
+    defaultLayout: 'main',
+    extname: '.handlebars',
+    helpers: {
+      previewTrackUrls: helpers.previewTrackUrls,
+    },
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+    },
+  });
+
+  app.engine('handlebars', handlebars.engine);
     
     app.set('view engine', 'handlebars');
     

@@ -1,27 +1,27 @@
-let isPlaying = false;
-let timerInterval = null;
-let remainingTime = 30;
+document.addEventListener('DOMContentLoaded', () => {
+  let isPlaying = false;
+  let timerInterval = null;
+  let remainingTime = 30;
 
-function updateAudioSource(previewTrackUrl) {
-  const audio = document.getElementById('audioPlayer');
-  audio.src = previewTrackUrl;
-}
-
-function togglePlay() {
-  const audio = document.getElementById('audioPlayer');
-  const playButton = document.getElementById('play-button');
-
-  if (isPlaying) {
-    audio.pause();
-    
-  } else {
-    audio.play();
-    startTimer();
+  function updateAudioSource(previewTrackUrl) {
+    const audio = document.getElementById('audioPlayer');
+    audio.src = previewTrackUrl;
   }
 
-  isPlaying = !isPlaying;
-  playButton.textContent = isPlaying ? 'Pause' : 'Play';
-}
+  function togglePlay() {
+    const audio = document.getElementById('audioPlayer');
+    const playButton = document.getElementById('play-button');
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+      startTimer();
+    }
+
+    isPlaying = !isPlaying;
+    playButton.textContent = isPlaying ? 'Pause' : 'Play';
+  }
 
   function startTimer() {
     const timerDisplay = document.getElementById('timer');
@@ -37,16 +37,14 @@ function togglePlay() {
     }, 1000);
   }
 
-
-
-  function fetchPreviewTrackUrl() {
+  function fetchPreviewTrackUrl(artistId) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status === 200) {
-            const response = xhr.responseText;
-            const previewTrackUrl = JSON.parse(response);
+            const response = JSON.parse(xhr.responseText);
+            const previewTrackUrl = response.previewTrackUrl;
             console.log('Fetched preview track URL:', previewTrackUrl);
             resolve(previewTrackUrl);
           } else {
@@ -55,25 +53,29 @@ function togglePlay() {
         }
       };
 
-      xhr.open('GET', '/quiz');
+      const url = artistId ? `/quiz/?artistId=${artistId}` : '/quiz';
+      xhr.open('GET', url);
       xhr.send();
       console.log('Fetching preview track URL...');
     });
   }
 
-
-  async function init() {
+  async function nextRound(artistId) {
     try {
-      const previewTrackUrl = await fetchPreviewTrackUrl();
+      const previewTrackUrl = await fetchPreviewTrackUrl(artistId);
       updateAudioSource(previewTrackUrl);
     } catch (error) {
       console.error(error);
     }
   }
 
-  const playButton = document.getElementById('play-button');
-  playButton.addEventListener('click', togglePlay);
+  document.querySelector('.name-box').addEventListener('click', function (event) {
+    if (event.target.matches('.name-choice')) {
+      console.log('Button was clicked!');
+      const artistId = event.target.getAttribute('data-artist-id');
+      nextRound(artistId);
+    }
+  });
 
-  init();
-
-
+  nextRound();
+});
