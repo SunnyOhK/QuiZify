@@ -75,7 +75,7 @@
             <!--* THIRD COLUMN : Login/Logout *-->
             <div class="col me-4" style="width: 33.33vw;" id="login-column">
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-light login-form" data-bs-toggle="modal" data-bs-target="#login">
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#login">
                 Login
               </button>
               <div class="modal fade" id="login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -90,11 +90,11 @@
                       <form class="login-form px-4 py-3">
                         <div class="mb-3">
                           <label for="email-login" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email-login" placeholder="">
+                          <input type="email" class="form-control" id="email-login" name="email">
                         </div>
                         <div class="mb-3">
                           <label for="password-login" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="password-login" placeholder="">
+                          <input type="password" class="form-control" id="password-login" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary">Sign in</button>
                       </form>
