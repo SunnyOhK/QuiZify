@@ -26,7 +26,16 @@ Start playing and have fun testing your music knowledge!
 
 ## Usage 
 
-The user 
+The user is presented with the initial homepage and give the user the option to select one of the two games.
+'pic here'
+
+
+Once the user selects one of the two games they are brought to the gameplay page and a short song clip will automatically play and the user has to pick one of the 4 options that is given to them. 
+'pic here'
+
+
+After the user has gone through the questions they can choose to view the results of all of the questions that they answered and the correct ones will be shown. They will also have the option to listen to the song again if they would like. 
+'pic here'
 
 ### Demo:
 
@@ -49,7 +58,6 @@ https://quizify.herokuapp.com/
 | <img height="20px" src="assets/README-icons/howler-icon.png"> | Howler.js | JS audio library |
 | <img height="20px" src="assets/README-icons/bcrypt-icon.png"> | Bcrypt Hash | Cryptographic hashing algorithm |
 | Testing |  |  |
-
 
 
 
