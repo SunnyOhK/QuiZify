@@ -4,7 +4,7 @@
 <br>
 
 ## Description
-This application demonstrates a user friendly platform to engage in a music based quiz game that involves the user listening to a short clip of a song and having to correctlty match the song with the corresponding artist. Whenever the user is finished with the quiz, it will display the correct answer allowing the user to view it and also play the same clip again. 
+This application turns finding your new favorite song into an exciting and engaging game. Simply listen to a brief song clip and try to match it with the correct artist! At the end of the game, you can save your favorite tracks to a song queue in your user profile.
 
 ## Table of Contents
 
@@ -18,10 +18,9 @@ This application demonstrates a user friendly platform to engage in a music base
 
 ## Installation
 
-Clone the repository to your local machine and then run npm i to install all neccessary modules that you will need. 
-Follow the on-screen instructions and login/sign up for returning users.
-Start playing and have fun testing your music knowledge!
+No installation required! Simply visit https://quizify.herokuapp.com to play quiZify.
 
+Be sure to <i>Sign Up & Sign In</i> to experience the fun!
 
 
 ## Usage 
