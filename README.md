@@ -10,7 +10,6 @@ This application turns finding your new favorite song into an exciting and engag
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Demo](#demo)
 - [Technology Stack](#technology-stack)
 - [Credits](#credits)
 - [License](#license)
@@ -25,20 +24,26 @@ Be sure to <i>Sign Up & Sign In</i> to experience the fun!
 
 ## Usage 
 
-The user is presented with the initial homepage and give the user the option to select one of the two games.
-'pic here'
+Does it seem a little dull in here to you?<br>
+Homepage: 
+<img src="assets/demo-images/homepage.png">
+
+I thought you said this was supposed to be fun.<br>
+Oh, now wait a minute...
+<img src="assets/demo-images/homepage-color.png">
 
 
-Once the user selects one of the two games they are brought to the gameplay page and a short song clip will automatically play and the user has to pick one of the 4 options that is given to them. 
-'pic here'
+How about we play Match Song + Artist Name?
+This is a BLAST!!
+<img src="assets/demo-images/game-match-name.png">
+
+Now I can view the songs I heard during my game:
+<img src="assets/demo-images/results.png">
+
+Oh phew! I forgot to write them down to listen again later. Thank goodness my Profile Page saves them for me:
+<img src="assets/demo-images/profile.png">
 
 
-After the user has gone through the questions they can choose to view the results of all of the questions that they answered and the correct ones will be shown. They will also have the option to listen to the song again if they would like. 
-'pic here'
-
-### Demo:
-
-https://quizify.herokuapp.com/ 
 
 ## Technology Stack
 
