@@ -90,7 +90,7 @@ h1 {
   font-size: 28px;
   font-family: 'Chelsea Market', cursive;
   border: none;
-  background-color: #E6E6E6 !important;
+  background-color: #e6e6e600 !important;
 }
 
 #login-button:hover,
@@ -105,7 +105,7 @@ h1 {
   font-size: 28px;
   font-family: 'Chelsea Market', cursive;
   border: none;
-  background-color: #E6E6E6 !important;
+  background-color: #e6e6e600 !important;
 }
 
 .logout:hover {
