@@ -26,6 +26,13 @@ body.cz-shortcut-listen {
   display: none !important;
 }
 
+.modal-backdrop {
+  display: none !important;
+}
+.modal-backdrop.show {
+  display: none !important;
+}
+
 /** HOMEPAGE **/
 h1 {
   font-size: 80px;
@@ -78,14 +85,16 @@ h1 {
   padding-right: 20px;
 }
 
-.login {
+#login-button,
+  #signup-button {
   font-size: 28px;
   font-family: 'Chelsea Market', cursive;
   border: none;
   background-color: #E6E6E6 !important;
 }
 
-.login:hover {
+#login-button:hover,
+  #signup-button:hover {
   color: var(--neon-purple);
   text-shadow: 3px 1px #372b25;
   transition: .2s ease-in-out;
