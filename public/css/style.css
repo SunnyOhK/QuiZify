@@ -219,6 +219,8 @@ h1 {
   justify-content: center;
   align-content: center;
   margin-top: 20px;
+  background-color: #676767;
+  border-color: #676767;
 }
 
 #card-btn:hover {
@@ -228,6 +230,10 @@ h1 {
   background-color: black;
   box-shadow: inset 0 0 3px 3px var(--neon-pink);
   color: var(--neon-pink);
+}
+
+#disabled-btn {
+  background-color: var();
 }
 
 .boombox {
